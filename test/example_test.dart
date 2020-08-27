@@ -12,6 +12,7 @@ testExamples() => group("Examples", () {
     var obj2 = codec.decode(data1);
     var data2 = codec.encode(obj2);
     expect(obj2.toString(), equals(obj1.toString()));
+    //expect(data1, equals(data0));
     expect(data2, equals(data1));
     
   };
@@ -20,23 +21,28 @@ testExamples() => group("Examples", () {
   List<FileSystemEntity> files = base.existsSync() ? base.listSync(recursive: true) : [];
   
   for (FileSystemEntity f in files) if(f is File){
+    print('File: $f');
+/*
     if(f.path.endsWith(".verbose.json")){
       test(
         f.path.split("/").last,
         iterativeTest(VerboseJSON,f.readAsStringSync())
       );
-    } else if (f.path.endsWith(".json")){
+    } 
+*/
+    if (f.path.endsWith(".json")){
       test(
         f.path.split("/").last,
         iterativeTest(JSON,f.readAsStringSync())
       );
-    } else if (f.path.endsWith(".mp")){
+    } 
+/*
+    if (f.path.endsWith(".mp")){
       test(
         f.path.split("/").last,
         iterativeTest(MsgPack,f.readAsBytesSync())
       );
     }
+*/
   }
-  
-    
 });

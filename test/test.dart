@@ -3,7 +3,7 @@ library test;
 import "dart:collection";
 import "dart:io";
 import "dart:convert";
-import "package:unittest/unittest.dart";
+import "package:test/test.dart";
 import "package:transit/transit.dart";
 
 part "cache_test.dart";
