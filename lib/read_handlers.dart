@@ -46,7 +46,7 @@ final Map<String, ReadHandler> _standardReadHandlers = {
   
   "b": (o){
     if(o is String)
-      return new TransitBytes(CryptoUtils.base64StringToBytes(o));
+      return new TransitBytes(base64.decode(o));
     return null;
   },
   

@@ -4,7 +4,7 @@ author: Clean Team <clean@vacuumlabs.com>
 description: Transit for Dart
 homepage: https://github.com/cleandart/transit-dart
 dependencies:
-  crypto: '>=0.9.0 <0.10.0'
-  msgpack: '>=0.0.4 <0.1.0'
+  crypto: '>=0.9.0'
+  msgpack2: '^2.0.0'
 dev_dependencies:
-  unittest: any
+  test:

@@ -66,7 +66,7 @@ abstract class _AbstractPreEncoding{
   
   emitBoolean(bool b, asMapKey) => b;
   
-  emitBytes(obj, asMapKey) => "~b${CryptoUtils.bytesToBase64(obj)}";
+  emitBytes(obj, asMapKey) => "~b${base64.encode(obj)}";
   
   emitTagged(tag, rep, asMapKey){
     if(asMapKey && forceStringKey)
@@ -143,7 +143,8 @@ class _JsonPreEncoding extends _AbstractJsonPreEncoding {
   
   emitMap(Map m, asMapKey){
     if(asMapKey) throw new ArgumentError("Map is a key");
-    var result = ["^ "];
+    //var result = ["^ "];
+    List<Object> result = ["^ "];
     m.forEach((key,value){
       result.add(this.encode(key,true));
       result.add(this.encode(value,false));

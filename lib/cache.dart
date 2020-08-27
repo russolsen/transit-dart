@@ -32,7 +32,7 @@ class _CacheCodingCodec {
  * Converter which stores cacheable values
  * and then is able to decode cache codes.
  */
-class CacheLogicDecoder extends Converter{
+class CacheLogicDecoder extends Converter<String, String>{
   
   List data = [];
   
@@ -55,7 +55,7 @@ class CacheLogicDecoder extends Converter{
  * Converter which stores cacheable values
  * and encodes repetitive ones.
  */
-class CacheLogicEncoder extends Converter{
+class CacheLogicEncoder extends Converter<String, String>{
   
   int counter = 0;
   Map data = {};

@@ -71,7 +71,7 @@ abstract class TransitDecoder<S,T> extends Converter<S,T>{
 /**
  * Encodes Dart object to MsgPack data.
  */
-class MsgPackTransitEncoder extends TransitEncoder{
+class MsgPackTransitEncoder<S,T> extends TransitEncoder<S,T>{
   
   final preEncoder = new MsgPackPreEncoder();
   final mainEncoder = new MsgPackEncoder();
@@ -80,7 +80,7 @@ class MsgPackTransitEncoder extends TransitEncoder{
 /**
  * Decodes MsgPack data to Dart object.
  */
-class MsgPackTransitDecoder extends TransitDecoder{
+class MsgPackTransitDecoder<S,T> extends TransitDecoder<S,T>{
   
   final postDecoder = new PostDecoder();
   final mainDecoder = new MsgPackDecoder();
@@ -89,7 +89,7 @@ class MsgPackTransitDecoder extends TransitDecoder{
 /**
  * Encodes Dart object to JSON data.
  */
-class JsonTransitEncoder extends TransitEncoder{
+class JsonTransitEncoder<S,T> extends TransitEncoder<S,T>{
   
   final preEncoder = new JsonPreEncoder();
   final mainEncoder = new JsonEncoder();
@@ -98,7 +98,7 @@ class JsonTransitEncoder extends TransitEncoder{
 /**
  * Decodes JSON data to Dart object.
  */
-class JsonTransitDecoder extends TransitDecoder{
+class JsonTransitDecoder<S,T> extends TransitDecoder<S,T>{
   
   final postDecoder = new PostDecoder();
   final mainDecoder = new JsonDecoder();
@@ -107,7 +107,7 @@ class JsonTransitDecoder extends TransitDecoder{
 /**
  * Encodes Dart object to human-readable JSON data.
  */
-class VerboseJsonTransitEncoder extends TransitEncoder{
+class VerboseJsonTransitEncoder<S,T> extends TransitEncoder<S,T>{
   
   final preEncoder = new VerboseJsonPreEncoder();
   final mainEncoder = new JsonEncoder.withIndent("  ");
@@ -116,7 +116,7 @@ class VerboseJsonTransitEncoder extends TransitEncoder{
 /**
  * Decodes JSON data to Dart object.
  */
-class VerboseJsonTransitDecoder extends TransitDecoder{
+class VerboseJsonTransitDecoder<S,T> extends TransitDecoder<S, T>{
   
   final postDecoder = new PostDecoder();
   final mainDecoder = new JsonDecoder();
@@ -127,7 +127,7 @@ class VerboseJsonTransitDecoder extends TransitDecoder{
  */
 class MsgPackTransitCodec extends Codec<dynamic,List<int>>{
   
-  final encoder = new MsgPackTransitEncoder();
+  final encoder = new MsgPackTransitEncoder<dynamic, List<int>>();
   final decoder = new MsgPackTransitDecoder();
 }
 
@@ -136,7 +136,7 @@ class MsgPackTransitCodec extends Codec<dynamic,List<int>>{
  */
 class JsonTransitCodec extends Codec<dynamic,String>{
   
-  final encoder = new JsonTransitEncoder();
+  final encoder = new JsonTransitEncoder<dynamic, String>();
   final decoder = new JsonTransitDecoder();
 }
 
@@ -146,7 +146,7 @@ class JsonTransitCodec extends Codec<dynamic,String>{
  */
 class VerboseJsonTransitCodec extends Codec<dynamic,String>{
   
-  final encoder = new VerboseJsonTransitEncoder();
+  final encoder = new VerboseJsonTransitEncoder<dynamic, String>();
   final decoder = new VerboseJsonTransitDecoder();
 }
 

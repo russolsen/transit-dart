@@ -105,8 +105,8 @@ abstract class _TimestampWriteHandler extends WriteHandler<DateTime> {
   const _TimestampWriteHandler();
     
   String tag(DateTime d) => "m";
-  
-  WriteHandler verbose_handler(){
+
+  WriteHandler<DateTime> verbose_handler(){
       return const _TimestringWriteHandler();
   }
 }
